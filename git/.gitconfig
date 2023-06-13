@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Nicolás A. Niño
+	email =58050431+Ste1nb0cK@users.noreply.github.com
+	username = Ste1nb0cK
+[core]
+	editor = emacs
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+[web]
+	browser = brave-browser
