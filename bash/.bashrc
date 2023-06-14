@@ -87,10 +87,8 @@ fi
 ################ALIASES########################################
 #activating Spack shell support
 alias spack_activate='. ~/spack/share/spack/setup-env.sh'
-#dotfile managment
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 #mounting my HDD
-alias bigboy='sudo fdisk -l | python3 ~/Documents/Scripts/MountingHDD/getbig.py'
+alias bigboy='sudo fdisk -l | python3 ~/Utilities/MountingHDD/getbig.py'
 #unmounting my HDD
 alias bigboy_aus='echo "Unmounting";
                     sudo umount /SanJuanWolf;
@@ -119,20 +117,10 @@ export PATH=~/sage:$PATH
 export PATH=~/julia/bin:$PATH
 #Zotero
 export PATH=~/Zotero_linux-x86_64:$PATH
-#Appimages
+#Appimage
 export PATH=~/AppImages:$PATH
-#Doom emacs
+#Doom
 export PATH=~/.config/emacs/bin:$PATH
-#Spack
-export PATH=~/spack/bin:$PATH
-#Go
-export PATH=/usr/local/go/bin:$PATH
-#Exercism
-export PATH=~/bin:$PATH
-#Latex
-export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ste1nb0ck/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
