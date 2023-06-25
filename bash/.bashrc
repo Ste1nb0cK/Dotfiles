@@ -121,6 +121,10 @@ export PATH=~/Zotero_linux-x86_64:$PATH
 export PATH=~/AppImages:$PATH
 #Doom
 export PATH=~/.config/emacs/bin:$PATH
+#Latex
+export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+
+#Mamba Stuff
 __conda_setup="$('/home/ste1nb0ck/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
