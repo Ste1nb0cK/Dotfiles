@@ -75,3 +75,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "%a, %d-%m-%Y"
+      org-journal-time-prefix "* "
+      org-journal-file-format "%d-%m-%Y.org"
+      )
