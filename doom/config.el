@@ -79,4 +79,5 @@
       org-journal-time-prefix "%a, %d-%m-%Y"
       org-journal-time-prefix "* "
       org-journal-file-format "%d-%m-%Y.org"
+      org-journal-dir "~/Org/Journal"
       )
