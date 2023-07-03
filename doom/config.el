@@ -27,6 +27,7 @@
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
+
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -40,7 +41,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Org/") ;;I use it with a capital O
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -75,9 +76,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
+;;configuration for org-journal
 (setq org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "%a, %d-%m-%Y"
       org-journal-time-prefix "* "
       org-journal-file-format "%d-%m-%Y.org"
       org-journal-dir "~/Org/Journal"
       )
+
+;;Open org documents with everything folded
+(after! org
+ (setq org-startup-folded t))
