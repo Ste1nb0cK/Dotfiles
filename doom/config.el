@@ -87,3 +87,10 @@
 ;;Open org documents with everything folded
 (after! org
  (setq org-startup-folded t))
+
+(after! lsp-mode
+  (setq lsp-enable-symbol-highlighting t
+        lsp-enable-on-type-formatting t))
+
+(after! lsp-tex
+  (setq lsp-tex-server 'texlab))

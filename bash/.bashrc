@@ -125,6 +125,8 @@ export PATH=~/AppImages:$PATH
 export PATH=~/.config/emacs/bin:$PATH
 #Latex
 export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+#Texlab; Latex LSP server
+export PATH=~/Documents/texlab:$PATH
 
 #Mamba Stuff
 __conda_setup="$('/home/ste1nb0ck/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -143,3 +145,4 @@ if [ -f "/home/ste1nb0ck/mambaforge/etc/profile.d/mamba.sh" ]; then
     . "/home/ste1nb0ck/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+. "$HOME/.cargo/env"
