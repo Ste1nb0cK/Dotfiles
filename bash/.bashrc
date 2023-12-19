@@ -127,7 +127,8 @@ export PATH=~/.config/emacs/bin:$PATH
 export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
 #Texlab; Latex LSP server
 export PATH=~/Documents/texlab:$PATH
-
+#Cmake
+export PATH=~/cmake-3.28.1/bin:$PATH
 #Mamba Stuff
 __conda_setup="$('/home/ste1nb0ck/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
