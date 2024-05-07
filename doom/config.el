@@ -76,21 +76,81 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
-;;configuration for org-journal
-(setq org-journal-date-prefix "#+TITLE: "
-      org-journal-time-prefix "%a, %d-%m-%Y"
-      org-journal-time-prefix "* "
-      org-journal-file-format "%d-%m-%Y.org"
-      org-journal-dir "~/Org/Journal"
-      )
-
-;;Open org documents with everything folded
+;;;;;;;;;;;;;;;;;;;;;;;;;; ORG MODE ;;;;;;;;;;;;;;;;;;;;;;
+;;;; Plain Org Configuration
 (after! org
- (setq org-startup-folded t))
+  (setq org-directory "~/Org/"
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-log-done 'time
+        org-hide-emphasis-markers t
+       org-table-convert-region-max-lines 20000
+        org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+          '((sequence
+             "TODO(t)"           ; A task that is ready to be tackled
+             "JOURNAL(j)"           ; things to add to my journal
+             "EXERCISE(e)"
+             "FOOD(e)"
+             "LEISURE(l)"
+             "CLASSES(c)"
+             "RESEARCH(r)"          ; Research stuff
+             "WAIT(w)"           ; Something is holding up this task
+             "ADULTSHIT(a)"           ; Tedious burocracy and bills
+             "SOCIAL(s)"           ; going out, non-work meetings and personal favors
+             "|"                 ; The pipe necessary to separate "active" states and "inactive" states
+             "DONE(d)"           ; Task has been completed
+             "CANCELLED(c)"  ; Task has been cancelled
+             ))
+          org-startup-folded t ;Open org documents with everything folded
+          ))
+;;;;  org-journal configuration
+(after! org
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "%a, %d-%m-%Y" ; The only reasonable date format
+      org-journal-time-prefix "* "
+      org-journal-file-format "%d-%m-%Y.org" ; create the files with dates
+      org-journal-dir "~/Org/Journal"
+      ))
+
+;;;; org-agenda configuration
+(after! org
+  (setq org-agenda-files '("~/Org/Agenda")))
+(setq org-default-priority ?C)
+(setq
+   org-fancy-priorities-list '("💣" "👁" "💤")
+   org-priority-faces
+   '((?A :foreground "#ff6c6b" :weight bold)
+     (?B :foreground "#98be65" :weight bold)
+     (?C :foreground "#c678dd" :weight bold))
+   org-agenda-block-separator 8411)
+
+(setq org-agenda-custom-commands
+      '(("v" "A better agenda view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (tags "PRIORITY=\"B\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Medium-priority unfinished tasks:")))
+          (tags "PRIORITY=\"C\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Low-priority unfinished tasks:")))
+          ;; (tags "customtag"
+          ;;       ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+          ;;        (org-agenda-overriding-header "Tasks marked with customtag:")))
+          (agenda "")
+          (alltodo "")))))
+;;Open org documents with everything folded
+;; (after! org
+;;  (setq org-startup-folded t))
 
 (after! lsp-mode
-  (setq lsp-enable-symbol-highlighting t
+ (setq lsp-enable-symbol-highlighting t
         lsp-enable-on-type-formatting t))
 
+;;Use texlab as lsp server for latex
 (after! lsp-tex
   (setq lsp-tex-server 'texlab))
+
+;;Set the default bibliography to the one of the thesis
+(setq reftex-default-bibliography '("~/Documents/Research/ThesisCode/Bibliography.bib"))
