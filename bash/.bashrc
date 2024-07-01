@@ -1,4 +1,4 @@
-
+test -s ~/.alias && . ~/.alias || true
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -129,21 +129,7 @@ export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
 export PATH=~/Documents/texlab:$PATH
 #Cmake
 export PATH=~/cmake-3.28.1/bin:$PATH
-#Mamba Stuff
-__conda_setup="$('/home/ste1nb0ck/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ste1nb0ck/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/ste1nb0ck/mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ste1nb0ck/mambaforge/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/ste1nb0ck/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/ste1nb0ck/mambaforge/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-. "$HOME/.cargo/env"
+#Cargo
+export PATH=~/.cargo/bin:$PATH
+# Linux brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
