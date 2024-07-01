@@ -124,7 +124,7 @@ export PATH=~/AppImages:$PATH
 #Doom
 export PATH=~/.config/emacs/bin:$PATH
 #Latex
-export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 #Texlab; Latex LSP server
 export PATH=~/Documents/texlab:$PATH
 #Cmake
