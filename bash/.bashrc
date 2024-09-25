@@ -133,3 +133,38 @@ export PATH=~/cmake-3.28.1/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
 # Linux brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ste1nb0ck/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ste1nb0ck/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/ste1nb0ck/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ste1nb0ck/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/ste1nb0ck/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/ste1nb0ck/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/ste1nb0ck/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/ste1nb0ck/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<
